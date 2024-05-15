@@ -12,8 +12,14 @@ db.on("error",(err)=>console.log(err));
 db.on("open",()=>console.log("DATABASE CONNECTED"));
 
 const tasRouter = require("./routes/tasks");
-app.use("/api/tasks",tasRouter)
+app.use("/api/tasks",tasRouter);
+connect.DB();
+app.use((req,res) =>{
+    res.send("API is running")
 
+})
+
+const PORT = process.env.PORT || 5000
 
 
 
